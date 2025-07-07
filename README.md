@@ -1,30 +1,18 @@
-# Ariconnect Frontend
+# AgriConnect Frontend
 
-A modern, full-featured React application built with TypeScript, TailwindCSS, and shadcn/ui. This project demonstrates best practices for scalable frontend development with a focus on developer experience, accessibility, and maintainability.
+A modern React.js frontend application for the AgriConnect agricultural marketplace that connects farmers and suppliers.
 
 ## 🚀 Features
 
-### Core Technologies
-
-- **React 19** with TypeScript for robust, type-safe development
-- **Vite** for lightning-fast development and optimized builds
-- **TailwindCSS v4** for utility-first styling with modern features
-- **shadcn/ui** for beautiful, accessible component library
-
-### Developer Experience
-
-- **ESLint + Prettier** for consistent code quality and formatting
-- **Vitest** for fast unit testing with React Testing Library
-- **Path aliases** (`@/*`) for clean imports
-- **Hot Module Replacement (HMR)** for instant feedback during development
-
-### Modern Libraries
-
-- **React Router** for client-side routing
-- **TanStack Query** for data fetching, caching, and synchronization
-- **React Hook Form + Zod** for form handling and validation
-- **Radix UI** primitives for accessible components
-- **Lucide React** for beautiful icons
+- **Modern Tech Stack**: React 19, TypeScript, Tailwind CSS, Vite
+- **Authentication**: JWT-based auth with persistent sessions
+- **State Management**: Redux Toolkit for global state
+- **API Integration**: Axios with interceptors for API calls
+- **Form Validation**: React Hook Form with Zod validation
+- **UI Components**: Beautiful, accessible components with shadcn/ui
+- **Responsive Design**: Mobile-first responsive layout
+- **Role-based Access**: Different interfaces for farmers and suppliers
+- **Real-time Notifications**: Toast notifications for user feedback
 
 ## 🛠️ Getting Started
 
