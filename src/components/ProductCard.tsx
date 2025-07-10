@@ -1,8 +1,8 @@
 import { Edit, Trash2, ShoppingCart, Package } from 'lucide-react'
-import { Button } from '../ui/button'
-import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
-import { useAuth } from '../../hooks/useAuth'
-import type { Product } from '../../types'
+import { Button } from './ui/button'
+import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
+import { useAuth } from '../hooks/useAuth'
+import type { Product } from '../types'
 
 interface ProductCardProps {
   product: Product
@@ -24,17 +24,17 @@ export const ProductCard = ({ product, onEdit, onDelete, onAddToCart }: ProductC
   }
 
   return (
-    <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
+    <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white/80 backdrop-blur-sm">
       <CardHeader className="pb-4">
         {product.images && product.images.length > 0 ? (
           <img
             src={product.images[0]}
             alt={product.name}
-            className="w-full h-48 object-cover rounded-lg"
+            className="w-full h-48 object-cover rounded-xl shadow-md"
           />
         ) : (
-          <div className="w-full h-48 bg-slate-200 dark:bg-slate-700 rounded-lg flex items-center justify-center">
-            <Package className="h-12 w-12 text-slate-400" />
+          <div className="w-full h-48 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950/20 dark:to-blue-950/20 rounded-xl flex items-center justify-center">
+            <Package className="h-12 w-12 text-green-600" />
           </div>
         )}
       </CardHeader>
@@ -50,7 +50,9 @@ export const ProductCard = ({ product, onEdit, onDelete, onAddToCart }: ProductC
           </p>
 
           <div className="flex items-center justify-between">
-            <span className="text-2xl font-bold text-green-600">{formatPrice(product.price)}</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+              {formatPrice(product.price)}
+            </span>
             <span className="text-sm text-slate-500">per {product.unit}</span>
           </div>
 
@@ -58,12 +60,14 @@ export const ProductCard = ({ product, onEdit, onDelete, onAddToCart }: ProductC
             <span className="text-slate-600 dark:text-slate-300">
               Available: {product.quantity} {product.unit}
             </span>
-            <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+            <span className="px-3 py-1 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-full text-xs font-medium shadow-sm">
               {product.category.name}
             </span>
           </div>
 
-          <div className="text-xs text-slate-500">By: {product.farmer.name}</div>
+          <div className="text-xs text-slate-500 bg-slate-50 dark:bg-slate-800 px-2 py-1 rounded-lg">
+            By: {product.farmer.name}
+          </div>
         </div>
       </CardContent>
 

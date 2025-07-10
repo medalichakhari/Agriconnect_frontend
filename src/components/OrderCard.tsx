@@ -1,8 +1,8 @@
 import { Package, Clock, CheckCircle, XCircle, Truck } from 'lucide-react'
-import { Button } from '../ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../ui/card'
-import { useAuth } from '../../hooks/useAuth'
-import type { Order, OrderStatus } from '../../types'
+import { Button } from './ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
+import { useAuth } from '../hooks/useAuth'
+import type { Order, OrderStatus } from '../types'
 
 interface OrderCardProps {
   order: Order
@@ -35,17 +35,17 @@ export const OrderCard = ({ order, onUpdateStatus, onCancelOrder }: OrderCardPro
   const getStatusColor = (status: OrderStatus) => {
     switch (status) {
       case 'PENDING':
-        return 'bg-yellow-100 text-yellow-800'
+        return 'bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-800'
       case 'CONFIRMED':
-        return 'bg-blue-100 text-blue-800'
+        return 'bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800'
       case 'SHIPPED':
-        return 'bg-purple-100 text-purple-800'
+        return 'bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800'
       case 'DELIVERED':
-        return 'bg-green-100 text-green-800'
+        return 'bg-gradient-to-r from-green-100 to-green-200 text-green-800'
       case 'CANCELLED':
-        return 'bg-red-100 text-red-800'
+        return 'bg-gradient-to-r from-red-100 to-red-200 text-red-800'
       default:
-        return 'bg-gray-100 text-gray-800'
+        return 'bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800'
     }
   }
 
@@ -123,12 +123,14 @@ export const OrderCard = ({ order, onUpdateStatus, onCancelOrder }: OrderCardPro
   const actions = getAvailableActions()
 
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white/80 backdrop-blur-sm">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg">Order #{order.id.slice(-8)}</CardTitle>
+          <CardTitle className="text-lg bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+            Order #{order.id.slice(-8)}
+          </CardTitle>
           <div
-            className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}
+            className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium shadow-sm ${getStatusColor(order.status)}`}
           >
             {getStatusIcon(order.status)}
             {order.status}
